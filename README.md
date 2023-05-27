@@ -1,2 +1,2 @@
 # wild-genetics
-# this is a repository of information 
+## this is a repository of information 
