@@ -1,20 +1,12 @@
-# Wild Genetics
-### This is a repository of machine learning projects based on an aggregated genetic mutation database from ClinVar
+# Machine Learning and Genetic Variations: Insights into Disease Classification and Regression Modeling
 
-## Project Title
-### Regression Predictive Model for Pathogenicity Prediction in ClinVar Genetic Mutations Dataset
+### This is a repository of a machine learning project based on an aggregated genetic mutation database from ClinVar extracted from Kaggle.
 
-## Introduction
-In this project, a supervised learning model is developed using the ClinVar genetic mutations dataset to predict the pathogenicity of genetic variants and a few parameters regarding mutations. The dataset has been thoroughly cleaned, preprocessed, and analyzed to extract meaningful insights. By leveraging machine learning algorithms, this project aims to provide a valuable tool for interpreting genetic mutations, illustrate the significant discrepancies between clinical provider diagnoses, and attempt to find the most important features of such mutations.
+## Abstract:
 
-## Key Methods
-Data cleaning and preprocessing: Handling missing values, removing irrelevant features, and ensuring data quality.
-Exploratory data analysis: Applying statistical techniques and visualizations to gain insights and address class imbalances.
-Feature selection: Identifying the most informative features using statistical methods and domain knowledge.
-Model training and evaluation: Utilizing machine learning algorithms to build a regression predictive model and assessing its performance.
-Interpretability: Providing explanations for the model's predictions and potential clinical implications.
+This study aimed to elucidate the relationship between the pathogenicity of genetic mutations and the classification of the resulting diseases, utilizing the ClinVar database. An intensive data cleaning process was performed, including handling missing values, detecting outliers, and eliminating irrelevant columns. During this phase, a critical observation was made: the allele frequencies for genetic mutations varied significantly across different databases. This discrepancy poses a significant challenge in the field of genomics, as it could potentially lead to misleading interpretations and outcomes in genetic disease classification. Despite this obstacle, various machine learning models were deployed on the refined dataset. Initial models, however, struggled due to the imbalanced 'CLASS' target variable, achieving a less than ideal accuracy of 76% and an R-squared of -0.25. Nevertheless, the exploration of the PolyPhen variable and 'Consequence' column yielded more promising results. The XGBoost model, when applied to the PolyPhen variable, reached an accuracy of 78.8% and an R-squared of 0.21. Further, the model targeted towards the 'Consequence' column resulted in an impressive accuracy of 93.4% and an R-squared of 0.957, indicating a strong model fit. In conclusion, our study underscores the complexities involved in genetic mutation classifications, including significant variances in allele frequencies across databases. Despite early challenges, our research demonstrated the robust potential of machine learning in decoding these intricacies and provided a solid foundation for future research in genetic disease classification.
 
-## Dataset
+## Original Dataset
 The project uses the ClinVar genetic mutations dataset, which contains the following relevant attributes:
 
 CHROM: Chromosome information
@@ -61,7 +53,7 @@ The project incorporates the following methods and algorithms:
 ### Multiple regression algorithms, including Logistic Regression, Lasso, XGBoost, and Random Forest, were implemented to construct and evaluate the predictive model.
 ### Evaluation metrics such as accuracy, precision, recall, F1-score, confusion matrix, R-squared score, and mean squared error were utilized to assess the model's performance.
 
-## Assessment of Target Variables
+## Results and Target Variables
 Three target variables were assessed to predict different aspects of the genetic mutations dataset. A variety of algorithms were used for all target assessments, including: Logistic Regression, Lasso, Random Forest, XGBoost, Chi-Squared, Recursive Feature Elimination, and more.
 
 ### CLASS: Pathogenicity Classification
@@ -84,8 +76,10 @@ Evaluation metrics:
 Mean Squared Error (MSE): 10.405138957117275
 R-squared (R2): 0.9448865260468384
 
-## Results
-Unlocking the potential of precision medicine and advancing genetic research requires powerful tools to accurately predict the pathogenicity of genetic variants. Our groundbreaking study leverages state-of-the-art machine learning techniques, with XGBoost emerging as the superior algorithm across all three targets. By harnessing the predictive capabilities of XGBoost, we have achieved exceptional accuracy in predicting the pathogenicity classification, PolyPhen scores, and variant consequences. These impressive results highlight the robustness and reliability of our predictive model. The outcomes of our study offer invaluable insights for geneticists and laboratories, empowering them to make informed decisions about disease risk, diagnosis, and personalized treatment options. Embrace the power of our advanced predictive model, built on the cutting-edge XGBoost algorithm, to revolutionize genetic research and drive advancements in precision medicine.
+## Conclusion
+The research project sought to examine the relationship between the pathogenicity of genetic mutations and the classification of genetic diseases using the ClinVar database. We embarked on a rigorous data cleaning process, handling missing values, identifying outliers, and removing redundant or irrelevant columns. A keen focus on the dataset's allele frequency measures (AF_ESP, AF_EXAC, and AF_TGP) revealed differing counts of null values and potential collinearity issues, leading us to engineer a new feature to capture to mean of all columns considering they represent the same theoretical value. We applied various machine learning models, including Chi-Squared, PCA Reduction, Lasso Regression, Recursive Feature Elimination, Logistic Regression, Random Forest, and XGBoost to our refined dataset. Initial results produced an accuracy of 0.76 and an R-square value of -0.25. The error scores were less than optimal due in part to the imbalanced binary nature of the 'CLASS' variable. However, subsequent analysis of the PolyPhen variable, which categorizes the projected implications of genetic variations on protein structure and functionality, yielded more promising results. Our XGBoost model achieved an accuracy of 78.8% for this target and an R-squared value of 0.21. 
+
+Analysis of the 'Consequence' column, detailing the specific types of mutations, further enhanced our understanding of genetic mutation classifications. A final model built using the 'Consequence' column as a target, achieved an impressive accuracy of 93.4%. The R-squared value of 0.957 signified that the model could explain 95.7% of the variance in the dependent variable, while the low MSE value of 0.505 pointed to a close fit between the model predictions and actual results. In conclusion, our findings underscore the complexity of genetic mutation classifications and the potential of machine learning to enhance our understanding of these variations. While initial results were challenging, subsequent analyses of different variables provided promising insights, laying the groundwork for future research in genetic disease classification.
 
 ## Limitations
 Despite the promising results and valuable insights obtained from this study, there are certain limitations that should be acknowledged. Firstly, the predictive models developed in this project heavily rely on the quality and representativeness of the ClinVar genetic mutations dataset. Any biases or limitations present in the dataset, such as missing values or limited diversity in genetic variants, can impact the generalizability of the models. Additionally, although various preprocessing techniques and feature selection methods were applied, it is possible that some relevant information may have been overlooked or not effectively captured. Moreover, the performance of the models might vary when applied to different populations or datasets due to variations in allele frequencies and genetic characteristics. Furthermore, the choice of regression algorithms, while carefully selected, may not necessarily be the optimal choice for all scenarios. It is crucial to consider alternative algorithms and further explore their suitability for the specific problem domain. Lastly, as with any predictive model, it is important to interpret the results with caution and consider them as supportive evidence rather than definitive proof. Future research and validation studies involving larger and more diverse datasets would be beneficial to address these limitations and enhance the robustness and applicability of the predictive models.
@@ -95,11 +89,4 @@ Enhancing the model's performance through hyperparameter tuning and ensemble tec
 Exploring other feature engineering methods and domain-specific knowledge.
 Extending the model to handle multi-class classification or other related tasks.
 Integrating the model into a web application or API for easy deployment and usage.
-License
-Specify the license under which your project is distributed.
-
-Acknowledgments
-Express gratitude to any individuals, organizations, or resources that contributed to your project.
-
-Contact Information
-Provide your contact details, such as email or GitHub profile, for users to reach out to you with questions or feedback.
+Create new project based on significant differences between Allele Frequency databases
