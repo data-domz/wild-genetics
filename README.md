@@ -7,6 +7,9 @@
 This study aimed to elucidate the relationship between the pathogenicity of genetic mutations and the classification of the resulting diseases, utilizing the ClinVar database. An intensive data cleaning process was performed, including handling missing values, detecting outliers, and eliminating irrelevant columns. During this phase, a critical observation was made: the allele frequencies for genetic mutations varied significantly across different databases. This discrepancy poses a significant challenge in the field of genomics, as it could potentially lead to misleading interpretations and outcomes in genetic disease classification. Despite this obstacle, various machine learning models were deployed on the refined dataset. Initial models, however, struggled due to the imbalanced 'CLASS' target variable, achieving a less than ideal accuracy of 76% and an R-squared of -0.25. Nevertheless, the exploration of the PolyPhen variable and 'Consequence' column yielded more promising results. The XGBoost model, when applied to the PolyPhen variable, reached an accuracy of 78.8% and an R-squared of 0.21. Further, the model targeted towards the 'Consequence' column resulted in an impressive accuracy of 93.4% and an R-squared of 0.957, indicating a strong model fit. In conclusion, our study underscores the complexities involved in genetic mutation classifications, including significant variances in allele frequencies across databases. Despite early challenges, our research demonstrated the robust potential of machine learning in decoding these intricacies and provided a solid foundation for future research in genetic disease classification.
 
 ## Original Dataset
+
+Dataset Link: https://www.kaggle.com/datasets/kevinarvai/clinvar-conflicting
+
 The project uses the ClinVar genetic mutations dataset, which contains the following relevant attributes:
 
 CHROM: Chromosome information
@@ -53,28 +56,26 @@ The project incorporates the following methods and algorithms:
 ### Multiple regression algorithms, including Logistic Regression, Lasso, XGBoost, and Random Forest, were implemented to construct and evaluate the predictive model.
 ### Evaluation metrics such as accuracy, precision, recall, F1-score, confusion matrix, R-squared score, and mean squared error were utilized to assess the model's performance.
 
-## Results and Target Variables
+## Target Variables
 Three target variables were assessed to predict different aspects of the genetic mutations dataset. A variety of algorithms were used for all target assessments, including: Logistic Regression, Lasso, Random Forest, XGBoost, Chi-Squared, Recursive Feature Elimination, and more.
 
 ### CLASS: Pathogenicity Classification
-Logistic Regression, Lasso, XGBoost, and Random Forest were used to predict the pathogenicity class of genetic variants. XGBoost proved to be the best algorithm for all three targets.
-Evaluation metrics:
-Mean Squared Error (MSE): 0.22940635066728027
-R-squared (R2): -0.2208828302864998
-Accuracy: 0.7705936493327198
+
+Evaluation metrics: 
+
+R-squared (R2): -0.25 | Accuracy: 0.76 | Mean Squared Error (MSE): 0.22 
 
 ### PolyPhen: PolyPhen Prediction
-Multiple regression algorithms were applied to predict the PolyPhen score.
+
 Evaluation metrics:
-Mean Squared Error (MSE): 0.4273372415921012
-R-squared (R2): 0.4272876260005244
-Accuracy: 0.7855600123418698
+
+R-squared (R2): 0.21 | Accuracy: 0.79 | Mean Squared Error (MSE): 0.42 
 
 ### Consequence: Variant Consequence Prediction
-Regression algorithms were employed to predict the Consequence of genetic variants.
+
 Evaluation metrics:
-Mean Squared Error (MSE): 10.405138957117275
-R-squared (R2): 0.9448865260468384
+Accuracy: 0.93 | R-squared (R2): 0.96 | Mean Squared Error (MSE): 0.505
+
 
 ## Conclusion
 The research project sought to examine the relationship between the pathogenicity of genetic mutations and the classification of genetic diseases using the ClinVar database. We embarked on a rigorous data cleaning process, handling missing values, identifying outliers, and removing redundant or irrelevant columns. A keen focus on the dataset's allele frequency measures (AF_ESP, AF_EXAC, and AF_TGP) revealed differing counts of null values and potential collinearity issues, leading us to engineer a new feature to capture to mean of all columns considering they represent the same theoretical value. We applied various machine learning models, including Chi-Squared, PCA Reduction, Lasso Regression, Recursive Feature Elimination, Logistic Regression, Random Forest, and XGBoost to our refined dataset. Initial results produced an accuracy of 0.76 and an R-square value of -0.25. The error scores were less than optimal due in part to the imbalanced binary nature of the 'CLASS' variable. However, subsequent analysis of the PolyPhen variable, which categorizes the projected implications of genetic variations on protein structure and functionality, yielded more promising results. Our XGBoost model achieved an accuracy of 78.8% for this target and an R-squared value of 0.21. 
