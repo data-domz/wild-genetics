@@ -1,8 +1,6 @@
 # Machine Learning and Genetic Variations: Insights into Disease Classification and Regression Modeling
 
-#### Author: Pletcher, Dominic
-
-## IMPORTANT: Main Project Notebook name is 'genetic_model_class.ipynb'
+### This is a repository of a machine learning project based on an aggregated genetic mutation database from ClinVar extracted from Kaggle.
 
 ## Abstract:
 
